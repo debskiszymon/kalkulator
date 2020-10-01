@@ -1,6 +1,8 @@
 import logging
 logging.basicConfig(level=logging.DEBUG, format="")
 
+#calculator function
+
 def kalkulator(dzialanie, liczba_01, liczba_02):
     wynik = 0
     if dzialanie == 1:
@@ -13,12 +15,22 @@ def kalkulator(dzialanie, liczba_01, liczba_02):
         wynik = liczba_01 / liczba_02
     return wynik    
 
+#is the input a integer check function
+
+def is_int():
+    while True:
+            try:
+                liczba = int(input("Podaj składnik 1:"))
+                return liczba             
+            except ValueError:
+                print("Proszę podać liczbę!!")
+
 #print(kalkulator(4, 2, 2))
 
 if __name__ == "__main__": 
     dzialanie = int(input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:"))
-    liczba_01 = int(input("Podaj składnik 1:"))
-    liczba_02 = int(input("Podaj składnik 2:"))
+    liczba_01 = is_int()
+    liczba_02 = is_int()
     if dzialanie == 1:
         logging.debug(f"Dodaję {liczba_01} do {liczba_02}")
     elif dzialanie == 2:
