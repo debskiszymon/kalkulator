@@ -1,12 +1,33 @@
 import logging
 logging.basicConfig(level=logging.DEBUG, format="")
 
+def dodwanie(*argv):
+    wynik = 0
+    for arg in argv:
+        wynik += arg
+    return wynik
+def odejmowanie(*argv):
+    wynik = 0
+    for arg in argv:
+        wynik -= arg
+    return wynik
+def mnozenie(*argv):
+    wynik = argv[0]
+    for x in range(1, len(argv)):
+        wynik *= argv[x]
+    return wynik
+def dzielenie(*argv):
+    wynik = argv[0]
+    for x in range(1, len(argv)):
+        wynik /= argv[x]
+    return wynik
+
 #calculator function
 
-def kalkulator(dzialanie, liczba_01, liczba_02):
+def kalkulator(dzialanie, *argv):
     wynik = 0
     if dzialanie == 1:
-        wynik = liczba_01 + liczba_02
+        wynik = dodwanie(argv)
     elif dzialanie == 2:
         wynik = liczba_01 - liczba_02
     elif dzialanie == 3:
