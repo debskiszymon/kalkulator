@@ -61,13 +61,14 @@ if __name__ == "__main__":
             exit(1)
         try:
             liczby = [int(x) for x in input("Proszę podać liczby po przecinkach: ").split(",")]
+            if len(liczby) == 1:
+                print("Zbyt mało liczb aby wykonać zadanie - podaj minimum dwie liczby.")
+                exit(1)
             break
         except ValueError:
             print("Proszę podać liczbę oraz używać tylko przecinków")
         
-        
 
-    
 
 wynik = kalkulator(dzialanie, liczby)
 info(dzialanie, liczby)
