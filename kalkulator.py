@@ -1,30 +1,36 @@
 import logging
 logging.basicConfig(level=logging.DEBUG, format="")
 
-#calculator function 
+#funkcja kalkulator
 
 def kalkulator(dzialanie, liczby):
     if dzialanie == 1:
+        #dodawanie
         wynik = liczby[0]
         for x in range(1, len(liczby)):
             wynik += liczby[x]
         return wynik
     elif dzialanie == 2:
+        #odejmowanie
         wynik = liczby[0]
         for x in range(1, len(liczby)):
             wynik -= liczby[x]
         return wynik
     elif dzialanie == 3:
+        #mnożenie
         wynik = liczby[0]
         for x in range(1, len(liczby)):
             wynik *= liczby[x]
         return wynik
     elif dzialanie == 4:
+        #dzielenie
         wynik = liczby[0]
         for x in range(1, len(liczby)):
             wynik /= liczby[x]
         return wynik
 
+
+#funkcja która tłumaczy nam operację w zależności jakie działanie wybierzemy
 def info(dzialanie, liczby):
     if dzialanie == 1:
         text = "Dodaję "
@@ -55,12 +61,15 @@ if __name__ == "__main__":
     dzialanie = int(input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:"))
     tries = 5
     for i in range(6):
+        #maxymalna ilość prób 5
         tries -= 1
         if tries < 0:
             print("Przekroczono maxymalną liczbę prób: 5")
             exit(1)
+        #sprawdzamy czy zostały podane liczby oraz przecinki
         try:
             liczby = [int(x) for x in input("Proszę podać liczby po przecinkach: ").split(",")]
+            #sprawdzamy czy zostały podane przynajmniej dwie liczby
             if len(liczby) == 1:
                 print("Zbyt mało liczb aby wykonać zadanie - podaj minimum dwie liczby.")
                 exit(1)
